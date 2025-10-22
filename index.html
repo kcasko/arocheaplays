@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arochea Plays · Cozy Toca Boca Guides</title>
+  
+  <meta name="description" content="Cute, simple Toca Boca room ideas with checklists, screenshots, and quick links." />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&display=swap" rel="stylesheet" />
+
+  <!-- Our new stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ["Fredoka", "system-ui", "sans-serif"] },
+          colors: {
+            cozy: { bg: "#fce4ec", card: "#ffffff", stroke: "#111827", cyan: "#67e8f9", red: "#fb7185", pink: "#f472b6", yellow: "#facc15", green: "#34d399", fb: "#1877F2" },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="min-h-screen p-4">
+  <div class="mx-auto max-w-4xl">
+    <!-- Top bar -->
+    <header class="flex items-center justify-between gap-3 mb-6">
+      <a href="/" class="inline-flex items-center gap-2 text-gray-800 font-bold btn px-3 py-2 rounded-xl border-2 border-cozy-stroke bg-white">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        Home
+      </a>
+      <h1 class="text-2xl md:text-3xl font-display font-bold text-gray-900">Cozy Toca Boca Guides</h1>
+      <div class="w-[88px]"></div>
+    </header>
+
+    <!-- Controls -->
+    <section class="cozy-card p-4 md:p-5 mb-6">
+      <div class="flex flex-col md:flex-row gap-3 md:items-center">
+        <label class="flex-1 relative" aria-label="Search guides">
+          <input id="search" type="search" placeholder="Search guides (e.g., bedroom, pastel, fall)" class="w-full rounded-xl border-2 border-cozy-stroke py-3 pl-10 pr-3 outline-none focus:ring-4 focus:ring-black/10" />
+          <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+        </label>
+        <button id="resetFilters" class="btn rounded-xl border-2 border-cozy-stroke px-4 py-3 bg-white font-bold">Reset</button>
+      </div>
+      <div class="mt-3 flex flex-wrap gap-2" id="tagRow"></div>
+    </section>
+
+    <!-- Grid -->
+    <section id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></section>
+
+    <!-- Footer -->
+    <footer class="mt-8 text-center text-xs text-gray-600">
+      <p>© <span id="year"></span> Arochea Plays. Cozy vibes only.</p>
+    </footer>
+  </div>
+
+  <!-- Our new script file, deferred -->
+  <script src="script.js" defer></script>
+</body>
+</html>

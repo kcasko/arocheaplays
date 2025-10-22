@@ -1,0 +1,60 @@
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body {
+  background-color: #fce4ec;
+  font-family: "Fredoka", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  min-height: 100vh;
+  position: relative;
+}
+/* Wallpaper via pseudo-element */
+/* MAKE SURE THIS PATH IS CORRECT OR COMMENT IT OUT FOR NOW */
+body::before {
+  content: "";
+  position: fixed; inset: 0; z-index: -1;
+  background: url("assets/images/wallpaper1.jpeg") center/cover no-repeat;
+}
+@supports (background: image-set(url("x") 1x)) {
+  body::before {
+    background-image: image-set(
+      url("assets/images/wallpaper-1.webp") type("image/webp") 1x,
+      url("assets/images/wallpaper1.jpeg") type("image/jpeg") 1x
+    );
+  }
+}
+
+/* Buttons: no movement; outer ring only */
+.btn {
+  background-color: #fff;
+  border-color: #111827;
+}
+
+.tag-active { background: #111827; color: #fff; }
+
+.cozy-card {
+  background: #fff;
+  border: 3px solid #111827;
+  border-radius: 1.25rem;
+}
+
+.cozy-card img {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.cozy-card img.is-loaded {
+  opacity: 1;
+}
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+.like-btn {
+  width: 2.25rem; height: 2rem; line-height: 1.2;
+  text-align: center; font-weight: 700; background:#fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .cozy-card img { transition: none !important; }
+}
